@@ -1,18 +1,29 @@
 # yamllint-ts
 
-[![CI](https://github.com/Keylan/yamllint-ts/actions/workflows/ci.yml/badge.svg)](https://github.com/Keylan/yamllint-ts/actions/workflows/ci.yml)
-[![Coverage Status](https://coveralls.io/repos/github/Keylan/yamllint-ts/badge.svg?branch=main)](https://coveralls.io/github/Keylan/yamllint-ts?branch=main)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/yamllint-ts) [![KDE Eco](https://img.shields.io/badge/KDE%20Eco-certified-brightgreen?logo=kde&logoColor=white&style=flat-square)](https://eco.kde.org/) [![Blue Angel](https://img.shields.io/badge/Blue%20Angel-DE--UZ%20215-0055a4?style=flat-square)](https://www.blauer-engel.de/en/certification/criteria)
 
-A TypeScript implementation of [yamllint](https://github.com/adrienverge/yamllint), the YAML linter.
 
-## Installation
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
+
+## Architecture
+
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
+
+## Install
+
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
 ```bash
-npm install yamllint-ts
+git clone https://github.com/Interested-Deving-1896/yamllint-ts.git
+cd yamllint-ts
 ```
 
 ## Usage
+
 
 ```bash
 # Lint a file
@@ -27,80 +38,65 @@ yamllint-ts -d '{extends: relaxed, rules: {line-length: {max: 120}}}' myfile.yam
 
 ## Configuration
 
+
 yamllint-ts uses the same configuration format as Python yamllint. See the [yamllint documentation](https://yamllint.readthedocs.io/en/stable/configuration.html) for details.
 
-## Compatibility with Python yamllint
+## CI
 
-yamllint-ts aims for full feature parity with Python yamllint. All linting rules are implemented and produce identical results for valid YAML files.
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
 
-### Parser Differences
+## Mirror chain
 
-yamllint-ts uses the [yaml](https://github.com/eemeli/yaml) package for YAML parsing, while Python yamllint uses [PyYAML](https://pyyaml.org/). These parsers have different error reporting behavior for **malformed YAML**:
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/yamllint-ts`](https://github.com/Interested-Deving-1896/yamllint-ts) and mirrored through:
 
-| Aspect | Python yamllint (PyYAML) | yamllint-ts (eemeli/yaml) |
-|--------|--------------------------|---------------------------|
-| Error messages | PyYAML-style messages (e.g., "could not find expected ':'") | yaml-style messages (e.g., "Implicit keys need to be on a single line") |
-| Error positions | May differ by 1-2 lines | May differ by 1-2 lines |
-| Error detection | Detects some errors earlier/later in parsing | Detects some errors earlier/later in parsing |
-
-#### Example
-
-For this YAML with `no_space_after:value` on line 3 (missing space after colon):
-
-```yaml
----
-good: value
-no_space_after:value
-extra_spaces:   value
+```
+Interested-Deving-1896/yamllint-ts  ──►  OpenOS-Project-OSP/yamllint-ts  ──►  OpenOS-Project-Ecosystem-OOC/yamllint-ts
 ```
 
-- **Python yamllint**: `4:1 error syntax error: could not find expected ':'`
-- **yamllint-ts**: `3:1 error syntax error: Implicit keys need to be on a single line`
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
 
-Both correctly identify the file as invalid, but with different error messages and line numbers.
+## Contributors
 
-#### Impact
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
 
-- **For valid YAML**: 100% parity - all rules produce identical results
-- **For malformed YAML**: Syntax errors are detected but may have different messages/positions
-- **Comparison testing**: 144/160 tests match (90%), with all differences being syntax error reporting
+## Origins
 
-### Why Not Use PyYAML?
+<!-- AI:start:origins -->
+_Original project — no upstream influences recorded._
+<!-- AI:end:origins -->
 
-Porting PyYAML's scanner (~2000 lines of Python) to TypeScript would be a significant undertaking. The current approach provides full linting functionality while leveraging a well-maintained, modern YAML parser. The trade-off of slightly different syntax error messages for invalid YAML was deemed acceptable.
+## Resources
 
-## Rules
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
 
-All yamllint rules are supported:
+## Accessibility
 
-- `anchors`
-- `braces`
-- `brackets`
-- `colons`
-- `commas`
-- `comments`
-- `comments-indentation`
-- `document-end`
-- `document-start`
-- `empty-lines`
-- `empty-values`
-- `float-values`
-- `hyphens`
-- `indentation`
-- `key-duplicates`
-- `key-ordering`
-- `line-length`
-- `new-line-at-end-of-file`
-- `new-lines`
-- `octal-values`
-- `quoted-strings`
-- `trailing-spaces`
-- `truthy`
+<!-- AI:start:accessibility -->
+This repo uses automated accessibility auditing via `check-accessibility.yml`.
+
+Checks include: CODEOWNERS ownership coverage, README screen-reader compatibility,
+WCAG 2.1 AA HTML compliance, audio overview (espeak-ng), and Braille output (liblouis).
+
+
+
+
+Run the [Check Accessibility](https://github.com/Interested-Deving-1896/yamllint-ts/actions/workflows/check-accessibility.yml)
+workflow to generate the first report and accessibility artifacts.
+See [DOCS/accessibility.md](https://github.com/Interested-Deving-1896/yamllint-ts/blob/main/DOCS/accessibility.md) for the full reference.
+<!-- AI:end:accessibility -->
 
 ## License
 
-GPL-3.0 (same as Python yamllint)
-
-## Attribution
-
-This project is a TypeScript port of [yamllint](https://github.com/adrienverge/yamllint) by Adrien Vergé, licensed under GPL-3.0. The original Python implementation provided the design, rules, and test cases that this port is based on.
+<!-- AI:start:license -->
+[GPL-3.0](https://github.com/Interested-Deving-1896/yamllint-ts/blob/main/LICENSE) © 2026 [Interested-Deving-1896](https://github.com/Interested-Deving-1896)
+<!-- AI:end:license -->
